@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/item_image_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/margin_3dp"
+        android:layout_marginVertical="@dimen/margin_5dp"
+        android:contentDescription="@string/image_cd"
+        android:scaleType="centerCrop"
+        android:tintMode="screen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="H,3:4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/imageViewStyle"
+        app:tint="@color/gray"
+        tools:src="@mipmap/image_1" />
+
+    <TextView
+        android:id="@+id/item_text_view"
+        style="@style/notesFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_12dp"
+        android:lineHeight="@dimen/font_size_22sp"
+        android:textFontWeight="800"
+        android:textSize="@dimen/font_size_18sp"
+        app:layout_constraintBottom_toBottomOf="@id/item_image_view"
+        app:layout_constraintStart_toStartOf="@id/item_image_view"
+        tools:text="John Doe" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/phone_number_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/margin_30dp"
+        android:paddingVertical="@dimen/margin_80dp"
+        tools:targetApi="p">
+
+        <TextView
+            android:id="@+id/phone_number_title"
+            style="@style/commonFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/phone_number_title"
+            android:textFontWeight="500"
+            android:textSize="@dimen/font_size_18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/phone_number_question_header"
+            style="@style/commonFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:text="@string/phone_number_subtitle"
+            android:textFontWeight="800"
+            android:textSize="@dimen/font_size_30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phone_number_title" />
+
+        <EditText
+            android:id="@+id/phone_number_country_code"
+            style="@style/commonFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:background="@drawable/edit_text_border"
+            android:inputType="phone"
+            android:paddingHorizontal="@dimen/padding_14dp"
+            android:paddingVertical="@dimen/padding_7dp"
+            android:text="+91"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phone_number_question_header"
+            tools:hint="+91" />
+
+        <EditText
+            android:id="@+id/phone_number_mobile_number"
+            style="@style/commonFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="XXXXXXXXXX"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:paddingHorizontal="@dimen/padding_14dp"
+            android:paddingVertical="@dimen/padding_7dp"
+            android:textColorHint="@color/gray_3"
+            app:layout_constraintStart_toEndOf="@id/phone_number_country_code"
+            app:layout_constraintTop_toBottomOf="@id/phone_number_question_header" />
+
+        <android.widget.Button
+            android:id="@+id/phone_number_continue_button"
+            style="@style/commonFont"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_size"
+            android:layout_marginTop="@dimen/margin_19dp"
+            android:background="@drawable/button_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingHorizontal="@dimen/padding_16dp"
+            android:text="@string/continue_text"
+            android:textAllCaps="false"
+            android:textFontWeight="700"
+            android:textSize="@dimen/font_size_14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phone_number_country_code" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

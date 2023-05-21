@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/image_layout_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:targetApi="p">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image_layout_image_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/hermione"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/imageViewStyle" />
+
+        <TextView
+            android:id="@+id/image_layout_name"
+            style="@style/notesFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_15dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:text="@string/image_name"
+            android:textFontWeight="800"
+            android:textSize="@dimen/font_size_22sp"
+            app:layout_constraintBottom_toTopOf="@id/image_layout_footer_text"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/image_layout_footer_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_15dp"
+            android:text="@string/image_footer_text"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/image_layout_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

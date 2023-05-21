@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/notes_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:targetApi="p">
+
+        <ImageView
+            android:id="@+id/tab_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_12dp"
+            app:layout_constraintBottom_toTopOf="@id/tab_badge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/tab_color_selector" />
+
+        <TextView
+            android:id="@+id/tab_badge"
+            style="@style/customTabStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_3dp"
+            android:textColor="@color/tab_color_selector"
+            android:textSize="@dimen/font_size_12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tab_superscript"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:background="@drawable/badge_background"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/margin_6dp"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_size_12sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/tab_icon"
+            app:layout_constraintEnd_toEndOf="@id/tab_icon"
+            app:layout_constraintStart_toEndOf="@id/tab_icon"
+            app:layout_constraintTop_toTopOf="@id/tab_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

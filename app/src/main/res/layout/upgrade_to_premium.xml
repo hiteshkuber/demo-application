@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/notes_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:targetApi="p">
+
+        <TextView
+            android:id="@+id/upgrade_to_premium_title"
+            style="@style/notesFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/premium_title"
+            android:textColor="@color/black"
+            android:textFontWeight="800"
+            android:textSize="@dimen/font_size_22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/upgrade_to_premium_subtitle"
+            style="@style/notesFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:singleLine="false"
+            android:text="@string/premium_subtitle"
+            android:textColor="@color/gray"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/otp_continue_button"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/upgrade_to_premium_title" />
+
+
+        <android.widget.Button
+            android:id="@+id/otp_continue_button"
+            style="@style/commonFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            android:paddingHorizontal="@dimen/padding_16dp"
+            android:paddingVertical="@dimen/padding_12dp"
+            android:text="@string/upgrade_text"
+            android:textAllCaps="false"
+            android:textFontWeight="700"
+            android:textSize="@dimen/font_size_14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

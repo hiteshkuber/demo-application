@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">demure-demo-app</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="phone_number_title">Get OTP</string>
+    <string name="phone_number_subtitle">Enter your phone number</string>
+    <string name="otp_mobile_number">9876543210</string>
+    <string name="otp_question_header">Enter the OTP</string>
+    <string name="continue_text">Continue</string>
+    <string name="upgrade_text">Upgrade</string>
+    <string name="discover_title">Discover</string>
+    <string name="notes_title">Notes</string>
+    <string name="notes_subtitle">Personal messages to you</string>
+    <string name="profile_title">Profile</string>
+    <string name="matches_title">Matches</string>
+    <string name="image_name">Hermione, 23</string>
+    <string name="image_cd">ImageName\'s image</string>
+    <string name="image_footer_text">Tap to review 50+ notes</string>
+    <string name="premium_title">Interested In You</string>
+    <string name="premium_subtitle">Premium members can view all their likes at once</string>
+</resources>

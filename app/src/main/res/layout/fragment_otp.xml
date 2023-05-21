@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/otp_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/margin_30dp"
+        android:paddingVertical="@dimen/margin_80dp"
+        tools:targetApi="p">
+
+        <TextView
+            android:id="@+id/otp_title"
+            style="@style/commonFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textFontWeight="500"
+            android:textSize="@dimen/font_size_18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/otp_mobile_number" />
+
+        <ImageView
+            android:layout_width="@dimen/drawable_size"
+            android:layout_height="@dimen/drawable_size"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:src="@drawable/baseline_edit_24"
+            app:layout_constraintBottom_toBottomOf="@id/otp_title"
+            app:layout_constraintStart_toEndOf="@id/otp_title"
+            app:layout_constraintTop_toTopOf="@id/otp_title"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/otp_question_header"
+            style="@style/commonFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:text="@string/otp_question_header"
+            android:textFontWeight="800"
+            android:textSize="@dimen/font_size_30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/otp_title" />
+
+        <EditText
+            android:id="@+id/otp_code"
+            style="@style/commonFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:background="@drawable/edit_text_border"
+            android:inputType="number"
+            android:paddingHorizontal="@dimen/padding_14dp"
+            android:paddingVertical="@dimen/padding_7dp"
+            android:textColorHint="@color/gray_3"
+            android:hint="XXXX"
+            android:maxLength="4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/otp_question_header" />
+
+        <android.widget.Button
+            android:id="@+id/otp_continue_button"
+            style="@style/commonFont"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_size"
+            android:layout_marginTop="@dimen/margin_19dp"
+            android:textAllCaps="false"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            android:background="@drawable/button_bg"
+            android:paddingHorizontal="@dimen/padding_16dp"
+            android:text="@string/continue_text"
+            android:textFontWeight="700"
+            android:textSize="@dimen/font_size_14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/otp_code" />
+
+        <TextView
+            android:id="@+id/otp_countdown"
+            style="@style/commonFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:textFontWeight="500"
+            android:textSize="@dimen/font_size_14sp"
+            app:layout_constraintBottom_toBottomOf="@id/otp_continue_button"
+            app:layout_constraintStart_toEndOf="@id/otp_continue_button"
+            app:layout_constraintTop_toTopOf="@id/otp_continue_button"
+            tools:text="00:00" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
