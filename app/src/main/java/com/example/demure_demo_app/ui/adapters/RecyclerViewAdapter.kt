@@ -1,5 +1,7 @@
 package com.example.demure_demo_app.ui.adapters
 
+import android.graphics.RenderEffect
+import android.graphics.Shader
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,14 +10,18 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.demure_demo_app.R
 import com.example.demure_demo_app.data.ProfileData
+import com.squareup.picasso.Picasso
 
-class RecyclerViewAdapter(private val dataList: List<ProfileData>) :
+const val DUMMY_NAME = "<dummy name>"
+const val RADIUS = 50f
+
+class RecyclerViewAdapter(private val dataList: List<ProfileData>, private val isHidden: Boolean) :
     RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val imageView: ImageView = itemView.findViewById(R.id.item_image_view)
-        val textView: TextView = itemView.findViewById<TextView>(R.id.item_text_view)
+        val textView: TextView = itemView.findViewById(R.id.item_text_view)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewAdapter.ViewHolder {
@@ -31,10 +37,22 @@ class RecyclerViewAdapter(private val dataList: List<ProfileData>) :
         // Get the data model based on position
         val profileData: ProfileData = dataList[position]
         // Set item views based on your views and data model
-        val textView = holder.imageView
-        textView.setImageResource(profileData.image)
-        val button = holder.textView
-        button.text = profileData.name
+        Picasso
+            .get()
+            .load(profileData.image)
+            .into(holder.imageView)
+
+        if (isHidden) {
+            holder.imageView.setRenderEffect(
+                RenderEffect.createBlurEffect(
+                    RADIUS,
+                    RADIUS,
+                    Shader.TileMode.DECAL
+                )
+            )
+        }
+
+        holder.textView.text = profileData.name ?: DUMMY_NAME
     }
 
     // Returns the total count of items in the list

@@ -1,5 +1,3 @@
 package com.example.demure_demo_app.data
 
-import androidx.annotation.DrawableRes
-
-data class ProfileData(@DrawableRes val image: Int, val name: String)
+data class ProfileData(val image: String?, val name: String?)

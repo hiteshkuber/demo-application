@@ -63,27 +63,22 @@ class PhoneNumberFragment : Fragment() {
                     call: Call<ResponseBody?>,
                     response: Response<ResponseBody?>
                 ) {
-                    // TODO : debug changes until further updates
-//                    if (response.isSuccessful) {
-                    // todo: add snippet 1 here
-//                    } else {
-//                        Toast.makeText(context, "Error code " + response.code(), Toast.LENGTH_SHORT)
-//                            .show()
-//                    }
-
-                    // snippet 1
-                    val destinationFragment = OtpFragment()
-                    val bundle = Bundle()
-                    bundle.putString(phoneNumberKey, phoneNumber)
-                    bundle.putString(countryCodeKey, countryCode)
-                    destinationFragment.arguments = bundle
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.main_activity_container, destinationFragment).commit()
+                    if (response.isSuccessful && response.body()!=null) {
+                        val destinationFragment = OtpFragment()
+                        val bundle = Bundle()
+                        bundle.putString(phoneNumberKey, phoneNumber)
+                        bundle.putString(countryCodeKey, countryCode)
+                        destinationFragment.arguments = bundle
+                        parentFragmentManager.beginTransaction()
+                            .replace(R.id.main_activity_container, destinationFragment).commit()
+                    } else {
+                        Toast.makeText(context, "Error code " + response.code(), Toast.LENGTH_SHORT)
+                            .show()
+                    }
                 }
 
                 override fun onFailure(call: Call<ResponseBody?>, t: Throwable) {
-                    Toast.makeText(context, "Failure", Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(context, "Failure ", Toast.LENGTH_SHORT).show()
                 }
             }
         )

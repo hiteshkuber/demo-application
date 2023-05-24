@@ -37,6 +37,7 @@
                 android:textSize="@dimen/font_size_18sp" />
 
             <include
+                android:id="@+id/image_layout_notes"
                 layout="@layout/image_layout_notes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

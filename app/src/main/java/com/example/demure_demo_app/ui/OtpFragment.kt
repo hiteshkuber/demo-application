@@ -2,17 +2,18 @@ package com.example.demure_demo_app.ui
 
 import android.os.Bundle
 import android.os.CountDownTimer
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import com.example.demure_demo_app.R
 import com.example.demure_demo_app.data.RetrofitResponse
 import com.example.demure_demo_app.databinding.FragmentOtpBinding
 import com.google.gson.JsonObject
 import okhttp3.ResponseBody
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,7 +42,6 @@ class OtpFragment : Fragment() {
 
         binding.otpTitle.text = "$countryCode $phoneNumberKey"
 
-
         binding.otpContinueButton.setOnClickListener {
             binding.otpCode.text.toString().let {
                 if (it.length == 4) {
@@ -68,20 +68,19 @@ class OtpFragment : Fragment() {
                     call: Call<ResponseBody?>,
                     response: Response<ResponseBody?>
                 ) {
-//                    if (response.isSuccessful) {
-//                          // todo: add snippet 2 here
-//                    } else {
-//                        Toast.makeText(context, "Error code " + response.code(), Toast.LENGTH_SHORT)
-//                            .show()
-//                    }
-
-                    // code snippet 2
-                    val destinationFragment = UserFragment()
-                    val bundle = Bundle()
-                    bundle.putString(authKey, "todo: hitesh send auth val")
-                    destinationFragment.arguments = bundle
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.main_activity_container, destinationFragment).commit()
+                    if (response.isSuccessful) {
+                        val jsonObject = JSONObject(response.body()!!.string())
+                        val token = jsonObject.get("token").toString()
+                        val destinationFragment = UserFragment()
+                        val bundle = Bundle()
+                        bundle.putString(authKey, token)
+                        destinationFragment.arguments = bundle
+                        parentFragmentManager.beginTransaction()
+                            .replace(R.id.main_activity_container, destinationFragment).commit()
+                    } else {
+                        Toast.makeText(context, "Error code " + response.code(), Toast.LENGTH_SHORT)
+                            .show()
+                    }
                 }
 
                 override fun onFailure(call: Call<ResponseBody?>, t: Throwable) {
