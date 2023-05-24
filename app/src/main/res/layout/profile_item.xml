@@ -12,6 +12,7 @@
         android:layout_marginHorizontal="@dimen/margin_3dp"
         android:layout_marginVertical="@dimen/margin_5dp"
         android:contentDescription="@string/image_cd"
+        android:background="@drawable/profile_image_background"
         android:scaleType="centerCrop"
         android:tintMode="screen"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,9 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/imageViewStyle"
-        app:tint="@color/gray"
-        tools:src="@mipmap/image_1" />
+        app:shapeAppearanceOverlay="@style/imageViewStyle" />
 
     <TextView
         android:id="@+id/item_text_view"

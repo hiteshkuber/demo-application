@@ -1,5 +1,6 @@
 package com.example.demure_demo_app.data
 
+import com.example.demure_demo_app.data.profile_data.Feed
 import com.google.gson.JsonObject
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -14,5 +15,5 @@ interface AisleApi {
     fun verifyOtp(@Body jsonObject:JsonObject): Call<ResponseBody>
 
     @GET("users/test_profile_list")
-    fun testProfileList(@Header("Authorization") Authorization:String): Call<ResponseBody>
+    fun testProfileList(@Header("Authorization") Authorization:String): Call<Feed>
 }

@@ -1,29 +1,22 @@
 package com.example.demure_demo_app.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import com.example.demure_demo_app.R
-import com.example.demure_demo_app.data.RetrofitResponse
 import com.example.demure_demo_app.databinding.FragmentUserBinding
+import com.example.demure_demo_app.ui.adapters.ViewPagerAdapter
 import com.example.demure_demo_app.ui.notes.DiscoverFragment
 import com.example.demure_demo_app.ui.notes.MatchesFragment
 import com.example.demure_demo_app.ui.notes.NotesFragment
 import com.example.demure_demo_app.ui.notes.ProfileFragment
-import com.example.demure_demo_app.ui.adapters.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
-import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-
 
 class UserFragment : Fragment() {
 
@@ -62,9 +55,7 @@ class UserFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        arguments?.getString(OtpFragment().authKey)?.let {
-            performAuthorization(it)
-        }
+        setupCustomTabs()
 
     }
 
@@ -72,7 +63,10 @@ class UserFragment : Fragment() {
         val adapter = ViewPagerAdapter(parentFragmentManager)
 
         adapter.addFragment(DiscoverFragment(), resources.getString(R.string.discover_title))
-        adapter.addFragment(NotesFragment(), resources.getString(R.string.notes_title))
+
+        val notesFragment = NotesFragment()
+        notesFragment.arguments = arguments
+        adapter.addFragment(notesFragment, resources.getString(R.string.notes_title))
         adapter.addFragment(MatchesFragment(), resources.getString(R.string.matches_title))
         adapter.addFragment(ProfileFragment(), resources.getString(R.string.profile_title))
         binding.notesViewPager.adapter = adapter
@@ -108,32 +102,5 @@ class UserFragment : Fragment() {
                 tab.customView = customView
             }
         }
-    }
-
-    private fun performAuthorization(authToken: String) {
-        RetrofitResponse.getJsonPlaceHolderApi().testProfileList(authToken).enqueue(
-            object : Callback<ResponseBody?> {
-                override fun onResponse(
-                    call: Call<ResponseBody?>,
-                    response: Response<ResponseBody?>
-                ) {
-//                    if (response.isSuccessful) {
-//                        // todo: add snippet 3 here
-//                    } else {
-//                        Toast.makeText(context, "Error code " + response.code(), Toast.LENGTH_SHORT)
-//                            .show()
-//                    }
-
-                    // snippet 3
-                    binding.notesProgressBar.visibility = View.GONE
-                    setupCustomTabs()
-                }
-
-                override fun onFailure(call: Call<ResponseBody?>, t: Throwable) {
-                    Toast.makeText(context, "Failure", Toast.LENGTH_SHORT)
-                        .show()
-                }
-            }
-        )
     }
 }
