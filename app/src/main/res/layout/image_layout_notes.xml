@@ -9,18 +9,25 @@
         android:layout_height="wrap_content"
         tools:targetApi="p">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/image_layout_image_view"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/image_layout_card_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/profile_image_background"
-            android:scaleType="centerCrop"
+            app:cardCornerRadius="@dimen/image_constraints"
+            app:cardElevation="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/imageViewStyle" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image_layout_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/profile_image_background"
+                android:scaleType="centerCrop" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/image_layout_name"
